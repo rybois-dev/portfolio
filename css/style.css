@@ -64,6 +64,14 @@ section h2{
     border-radius: 20px;
 }
 
+main > img {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+    width: 10%;
+    height: 10%;
+}
+
 footer {
     text-align: center;
     padding: 10px 0;
