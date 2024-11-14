@@ -1,0 +1,21 @@
+<div class="relative">
+    <img class="border border-black" src="/assets/plateau/{{ ville }}.jpg">
+    <ng-container *ngFor="let tuile of tuiles; let i = index">
+        <div class="w-14 h-12 absolute flex flex-col gap-1 justify-center align-middle" [style.left.px]="getShiftX(i)"
+            [style.top.px]="getShiftY(i)" (click)="onClick(i)">
+            <!-- rails -->
+            <div class="flex justify-center gap-0.5">
+                <div *ngFor="let rail of tuile.rails"
+                    class="w-4 h-4 border border-black shadow shadow-black {{ getCouleurRail(rail) }}">
+                </div>
+            </div>
+            <!-- gares -->
+            <div *ngIf="tuile.nbGares !== undefined" class="flex justify-center gap-0.5">
+                <div *ngFor="let i of counter(tuile.nbGares)"
+                    class="w-4 h-4 p-0.5 border border-black bg-white shadow shadow-black">
+                    <img src="/assets/icons/gare.png">
+                </div>
+            </div>
+        </div>
+    </ng-container>
+</div>

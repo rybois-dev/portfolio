@@ -1,0 +1,5 @@
+<div class="{{ getHeightClass() }} w-full rounded bg-{{ color }}-100 relative">
+    <ng-container *ngFor="let carte of cartes; let i = index" class="flex z-10">
+        <app-carte [carte]="carte" [isActive]="isActive" [isMultiple]="carte === cartes[i+1]" [size]="size"></app-carte>
+    </ng-container>
+</div>

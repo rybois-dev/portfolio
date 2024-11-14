@@ -1,0 +1,6 @@
+<span class="relative flex group">
+    <ng-content select="[slot=content]"></ng-content>
+    <div class="absolute z-10 text-xs bg-black text-white p-1 rounded hidden group-hover:block top-5 right-0">
+        <ng-content select="[slot=tooltip]"></ng-content>
+    </div>
+</span>

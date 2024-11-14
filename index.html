@@ -1,16 +1,103 @@
 <!DOCTYPE html>
 <html lang="fr">
-    <head>
-        <meta charset="utf-8">
-        <title>Accueil</title>
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <title>Mon Portfolio</title>
+</head>
+<body>
     <header>
+        <h1>Bienvenue sur mon portfolio</h1>
         <nav>
-
+            <ul>
+                <li><a href="#presentation">Présentation</a></li>
+                <li><a href="#etude">Etudes</a></li>
+                <li><a href="#projets">Projets</a></li>
+                <li><a href="#experience">Expériences</a><li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </nav>
     </header>
-    <main>
-    
-    </main>
+
+    <section id="presentation">
+        <h2>À propos de moi</h2>
+        <p>Je suis un développeur web passionné par la création de sites et d'applications. J'aime apprendre de nouvelles technologies et relever des défis.</p>
+    </section>
+
+    <section id="etude">
+        <h2>Mes études</h2>
+        <div>
+            <div class="event">
+                <h4>2016-2020</h4>
+                <p>Collége Théodore Monod à Clarensac</p>
+            </div>
+            <div class="event">
+                <h4>2020-2023</h4>
+                <p>Lycée Technologique Dhuoda à Nîmes</p>
+            </div>
+            <div class="event">
+                <h4>2023-2027</h4>
+                <p>Université Technologique de Montpellier spécialité informatique</p>
+            </div>
+        </div>
+    </section>    
+
+    <section id="projets">
+        <h2>Mes Projets</h2>
+        <p>2023 - 2024</p>
+        <div class="carte-projet">
+            <h3>Projet de retouche d'image :</h3>
+            <p>Durant mon enseignement à l'université de Montpellier, j'ai réalisé des programmes en language c.
+                Dans ces programmes, je retouche au caractèristique de l'image pour jouer sur l'intensité des couleurs et pouvoir donner le négatif d'une image.
+            </p>
+            <a href="programme-en-language-c/" class="btn">Voir le projet</a>
+        </div>
+        <div class="carte-projet">
+            <h3>Projet réalisation d'un site présentant une controverse :</h3>
+            <p>J'ai été réaliser en amont une controverse à l'aide d'une recherche documentaire que j'ai mené.
+                Le sujet est sur les influences des fakes news. Pour suite, j'ai réalisé le site afin de présenter cette controverse.
+            </p>
+            <a href="sae-controverse-sur-les-fakes-news/Acceuil.html" class="btn">Voir le projet</a>
+        </div>
+        <div class="carte-projet">
+            <h3>Projet réalisation du jeu de société Train :</h3>
+            <p>J'ai été amener à réaliser la mécanique du jeu Train ainsi que coder une interface homme machine en adéquation avec ce jeu.</p>
+            <a href="sae-train/" class="btn">Voir le projet</a>
+        </div>
+        <p>2024 - 2025</p>
+        <div class="carte-projet">
+            <h3>Projet escape game :</h3>
+            <p>Au cours de mon enseignement à l'université, j'ai dû réaliser un site web de promotion d'un escape game proposer par un groupe de l'université.
+                Le thème de cette escape game est les pyramides. J'ai crée ce site web en contactant mes clients afin de réaliser un site qu'ils leur correspondent.
+            </p>
+            <a href="sae-escape-game/Accueil.html" class="btn">Voir le projet</a>
+        </div>
+    </section>
+
+    <section id="experience">
+        <h2>Mes expériences :</h2>
+
+    </section>
+
+    <section id="contact">
+        <h2>Contactez-moi</h2>
+        <form action="#" method="post">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+</body>
 </html>
