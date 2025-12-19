@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ressource/css/new_style.css">
+    <script src="/ressource/script/script.js"></script>
+    <title>Amenti : La voie d'osoris</title>
+</head>
+<body>
+    <header>
+        <div class="burger">
+            <img src="/ressource/images/menu2.png" alt="menuFerme" id="ferme">
+            <img src="/ressource/images/menu_ouvert.png" alt="menuOuvert" id="ouvert">
+            <div id="menu2">
+                <div>
+                    <a href="index.html">Accueil</a>
+                </div>
+                <div>
+                    <a href="/src/index.html#projets">Projets</a>
+                </div>
+                <div>
+                    <a href="/src/index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/src/index.html">Accueil</a></li>
+                <li><a href="/src/index.html#projets">Projets</a></li>
+                <li><a href="/src/index.html#contact">Contact</a></li>
+                <li><button id="dark-mode-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Projet de conception d'un site web de promotion d'escape game sur l'Égypte</h1>
+        <section id="presentation">
+            <h2>Amenti : La voie d'osiris</h2>
+            <p><strong>Équipe :</strong> 4</p>
+            <p><strong>Durée :</strong> 4 semaines</p>
+            <p><strong>Description :</strong> Site web de promotion d’un escape game.</p>
+            <p><strong>Type de projet :</strong> Universitaire</p>
+            <p><strong>Contraintes :</strong> Temps, contact et compréhension du client.</p>
+            <p><strong>Contribution personnelle :</strong></p>
+            <ul>
+                <li><a href="#reservation">Réalisation de la partie de réservation</a></li>
+                <li><a href="#architecture">Structuration de l'architecture globale du site</a></li>
+                <li><a href="#carte">Intégration de la carte interactive à la fin du site.</a></li>
+                <li><a href="#navigation">Participation à la communication avec le client.</a></li>
+            </ul>
+            <p><strong>Ce que j’ai appris :</strong></p>
+            <ul>
+                <li>Structurer les balises HTML (utiliser des balises appropriées).</li>
+                <li>Construire une page stylisée.</li>
+                <li>Intégrer une carte interactive.</li>
+            </ul>
+        </section>
+
+
+        <section id="reservation">
+            <h2>Conception du système de réservation</h2>
+            <p>Problème à résoudre : Le client avait besoin d'un moyen simple pour que les visiteurs puissent réserver leur session d'escape game en ligne.</p>
+            <p>Ma solution :</p>
+            <p>J'ai créé de zéro un formulaire de réservation intuitif avec :</p>
+            <ul>
+                <li>Un champ pour le nom de la réservation</li>
+                <li>Un sélecteur pour le nombre de participants (3 à 7 personnes)</li>
+                <li>Un calendrier pour choisir la date</li>
+                <li>Un menu déroulant pour sélectionner l'horaire</li>
+                <li>Un bouton de validation clair et visible</li>
+            </ul>
+            <p>Extrait de mon code pour le formulaire :</p>
+
+            <img src="/ressource/images/escapeGame/codeReservation.png" alt="code-reservation">
+            
+            <p>Mon approche :</p>
+            <ul>
+                <li>J'ai veillé à ce que le formulaire soit visuellement cohérent avec le thème égyptien</li>
+                <li>J'ai positionné le formulaire à côté d'une image immersive pour créer une expérience engageante</li>
+                <li>J'ai utilisé des couleurs chaudes et des bordures arrondies pour un design moderne mais thématique</li>
+            </ul>
+            <p>Résultat : Un système de réservation fonctionnel qui s'intègre parfaitement à l'univers de l'escape game tout en étant simple à utiliser.</p>
+        </section>
+
+        <section id="architecture">
+            <h2>Structuration de l'architecture globale du site</h2>
+            <p>Mon défi : Organiser toutes les informations de manière logique et attrayante.</p>
+            <p>Ce que j'ai fait :</p>
+            <p>J'ai conçu la structure complète du site en utilisant des balises sémantiques :</p>
+            <pre><code>&lt;header&gt;...&lt;/header&gt;
+        &lt;main&gt;
+            &lt;section id="information"&gt;...&lt;/section&gt;
+            &lt;section id="salles"&gt;...&lt;/section&gt;
+            &lt;section id="reservation"&gt;...&lt;/section&gt;
+        &lt;/main&gt;
+        &lt;footer&gt;...&lt;/footer&gt;</code></pre>
+            <p>J'ai créé une navigation fluide entre les sections (Accueil, Tarifs, Salles, Flyer, Contact)</p>
+            <p>J'ai organisé le contenu pour guider naturellement l'utilisateur vers l'action principale : la réservation</p>
+            <p>Mon choix de design :</p>
+            <ul>
+                <li>J'ai opté pour un fond avec des hiéroglyphes pour une immersion totale</li>
+                <li>J'ai utilisé des cartouches égyptiennes pour les titres</li>
+                <li>J'ai maintenu une cohérence visuelle sur toutes les pages</li>
+            </ul>
+            <p>Impact : Les visiteurs peuvent facilement trouver les informations et sont guidés vers la réservation</p>
+        </section>
+
+        <section id="carte">
+            <h2>Intégration d'une carte Google Maps interactive</h2>
+            <p>L'objectif : Faciliter l'accès à l'escape game pour les visiteurs.</p>
+            <p>Ma réalisation :</p>
+            <footer id="contact">
+                <iframe src="https://maps.google.com/maps?q=+99+avenue+occitanie+Montpellier&t=&z=18&ie=UTF8&iwloc=&output=embed" width="100%" height="358px"></iframe>
+                <address>99 avenue Occitanie, 34000 Montpellier</address>
+            </footer>
+
+            <p>Voici mon code pour appeler cette carte :</p>
+            <code>
+                &lt;footer id="contact"&gt;
+                    &lt;iframe src="https://maps.google.com/maps?q=+99+avenue+occitanie+Montpellier&t=&z=18&ie=UTF8&iwloc=&output=embed" width="100%" height="358px"&gt;&lt;/iframe&gt;
+                    &lt;address&gt;99 avenue Occitanie, 34000 Montpellier&lt;/address&gt;
+                &lt;/footer&gt;
+            </code>
+            <p>Mes décisions techniques :</p>
+            <ul>
+                <li>J'ai choisi une iframe responsive qui s'adapte à tous les écrans</li>
+                <li>J'ai positionné la carte dans le footer pour qu'elle soit visible sans être intrusive</li>
+                <li>J'ai ajouté les coordonnées textuelles à côté pour les utilisateurs qui préfèrent cette option</li>
+            </ul>
+            <p>Résultat : Les visiteurs peuvent facilement localiser l'escape game et obtenir un itinéraire.</p>
+        </section>
+
+        <section id="navigation">
+            <h2>Développement d'un menu déroulant pour une navigation intuitive</h2>
+            <p>Le besoin : Permettre un accès rapide aux informations sur les différentes salles.</p>
+            <p>Ma solution :</p>
+            <pre><code>
+                &lt;div class="dropdown"&gt;
+                    &lt;button&gt;Salles&lt;/button&gt;
+                    &lt;div class="dropdown-content"&gt;
+                        &lt;a href="#salle1"&gt;Salle 1&lt;/a&gt;
+                        &lt;a href="#salle2"&gt;Salle 2&lt;/a&gt;
+                        &lt;a href="#salle3"&gt;Salle 3&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            </code></pre>
+            <p>Mon CSS pour le menu déroulant :</p>
+            <pre><code>
+                .dropdown {
+                    position: relative;
+                }
+                .dropdown-content {
+                    display: none;
+                    position: absolute;
+                    background-color: #f9f9f9;
+                    min-width: 200px;
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                    z-index: 1;
+                    border-radius: 20px;
+                }
+                .dropdown:hover .dropdown-content {
+                    display: block;
+                }
+            </code></pre>
+            <p>Mon approche UX :</p>
+            <ul>
+                <li>J'ai utilisé des transitions fluides pour une expérience agréable</li>
+                <li>J'ai veillé à ce que le menu soit accessible au clavier</li>
+                <li>J'ai ajouté des effets visuels au survol pour un feedback immédiat</li>
+            </ul>
+            <p>Impact : Une navigation plus intuitive qui améliore l'expérience utilisateur.</p>
+        </section>
+
+        <section id="communication">
+            <h2>Participation à la communication avec le client</h2>
+            <p>Mon rôle : Servir de pont entre notre équipe technique et le client.</p>
+            <p>Ce que j'ai fait :</p>
+            <ul>
+                <li>J'ai clarifié les besoins du client en posant les bonnes questions</li>
+                <li>J'ai reformulé les demandes en termes techniques pour notre équipe</li>
+                <li>J'ai présenté nos solutions de manière compréhensible pour le client</li>
+                <li>J'ai géré les attentes en expliquant ce qui était réalisable dans notre délai</li>
+            </ul>
+            <p>Ce que j'en retire :</p>
+            <ul>
+                <li>L'importance de l'écoute active pour comprendre les vrais besoins</li>
+                <li>La nécessité de traduire le jargon technique en langage clair</li>
+                <li>L'art du compromis entre les souhaits du client et les contraintes techniques</li>
+            </ul>
+            <p>Résultat : Un client satisfait et une équipe qui savait exactement ce qu'elle devait faire.</p>
+        </section>
+
+        <section id="retention">
+            <h2>Ce que je retiens de cette expérience</h2>
+            <p>Pyramidum a été bien plus qu'un simple projet universitaire pour moi. C'était ma première véritable expérience de développement web complet, de la conception à la livraison.</p>
+            <p>Ce qui m'a le plus marqué, c'est de voir comment mon code a un impact réel sur les utilisateurs. Quand j'ai vu des visiteurs utiliser le formulaire de réservation que j'avais créé, ou naviguer facilement grâce au menu déroulant que j'avais développé, j'ai compris la puissance du développement web.</p>
+            <p>J'ai aussi réalisé que les détails font toute la différence : le choix des couleurs, la position d'un bouton, ou même l'animation d'un menu déroulant peuvent transformer une simple page web en une expérience mémorable.</p>
+            <p>Mais surtout, ce projet m'a confirmé que j'ai choisi la bonne voie. Le mélange de créativité, de logique et de résolution de problèmes que demande le développement web correspond parfaitement à ce que j'aime faire.</p>
+        </section>
+
+        <section>
+            <a href="/ressource/projet/sae-escape-game/Accueil.html">Voir le site</a>
+        </section>
+
+        <a href="#presentation" id="top-page" class="fix-img">
+            <img src="/ressource/images/retourHaut.png" alt="top-pages">
+        </a>
+        <a href="/ressource/documents/CV-DUBOIS-CLEMENT.pdf" target="_blank" id="cv" class="fix-img">
+            <img src="/ressource/images/monCV.png" alt="cv">
+        </a>
+        <a href="https://www.linkedin.com/in/clementdubois1" target="_blank" id="linkedin" class="fix-img">
+            <img src="../ressource/images/linkedin-app-icon.svg" alt="linkedin">
+        </a>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

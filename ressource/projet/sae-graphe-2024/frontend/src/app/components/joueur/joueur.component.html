@@ -1,0 +1,66 @@
+<div class="group/joueur min-w-[26rem] border rounded shadow p-2 bg-{{ color }}-500" [class.border-black]="data.actif"
+    [class.shadow-black]="data.actif">
+    <div class="flex justify-between bg-{{ color }}-100 px-2 rounded-full">
+        <span class="mr-4">{{ data.nom }}</span>
+        <span class="flex space-x-2">
+            <app-tooltip>
+                <ng-container slot="tooltip">Argent</ng-container>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/coins.png" />{{ data.argent
+                    }}</span>
+            </app-tooltip>
+            <app-tooltip>
+                <ng-container slot="tooltip">Rails</ng-container>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/rail.png" /> {{ data.rails
+                    }}</span>
+            </app-tooltip>
+            <app-tooltip>
+                <ng-container slot="tooltip">Score total</ng-container>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/star.png" /> {{
+                    data.scoreTotal }}</span>
+            </app-tooltip>
+            <app-tooltip>
+                <ng-container slot="tooltip">Jetons rail</ng-container>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" [src]="'/assets/icons/cube_'+color+'.png'" /> {{
+                    data.nbJetonsRails }}</span>
+            </app-tooltip>
+            <app-tooltip>
+                <div slot="tooltip" class="text-nowrap">
+                    Main :
+                    <p *ngFor="let carte of data.main">
+                        {{ carte }}
+                    </p>
+                </div>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/main.png" /> {{
+                    data.main.length }}</span>
+            </app-tooltip>
+
+            <app-tooltip>
+                <div slot="tooltip" class="text-nowrap">
+                    Pioche :
+                    <p *ngFor="let carte of data.pioche">
+                        {{ carte }}
+                    </p>
+                </div>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/pioche.png" /> {{
+                    data.pioche.length }}</span>
+            </app-tooltip>
+            <app-tooltip>
+                <div slot="tooltip" class="text-nowrap">
+                    Défausse :
+                    <p class="min-w-fit" *ngFor="let carte of data.defausse">
+                        {{ carte }}
+                    </p>
+                </div>
+                <span class="flex items-center" slot="content"><img class="w-5 h-5" src="/assets/icons/cards.png" /> {{
+                    data.defausse.length
+                    }}</span>
+            </app-tooltip>
+        </span>
+    </div>
+    <div class="flex flex-col gap-1 mt-2" [class.hidden]="!data.actif">
+        <app-liste-cartes [cartes]="data.cartesEnJeu" [isActive]="data.actif" [color]="color"
+            size="sm"></app-liste-cartes>
+        <app-liste-cartes [cartes]="data.cartesRecues" [isActive]="false" [color]="color" size="sm"></app-liste-cartes>
+        <app-liste-cartes [cartes]="data.main" [isActive]="data.actif" [color]="color" size="lg"></app-liste-cartes>
+    </div>
+</div>
