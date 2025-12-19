@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/ressource/css/new_style.css">
+    <script src="/ressource/script/zoom.js"></script>
+    <script src="/ressource/script/script.js"></script>
+    <title>VoxPopuli</title>
+</head>
+<body>
+    <header>
+        <div class="burger">
+            <img src="/ressource/images/menu2.png" alt="menuFerme" id="ferme">
+            <img src="/ressource/images/menu_ouvert.png" alt="menuOuvert" id="ouvert">
+            <div id="menu2">
+                <div>
+                    <a href="index.html">Accueil</a>
+                </div>
+                <div>
+                    <a href="/src/index.html#projets">Projets</a>
+                </div>
+                <div>
+                    <a href="/src/index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="/src/index.html">Accueil</a></li>
+                <li><a href="/src/index.html#projets">Projets</a></li>
+                <li><a href="/src/index.html#contact">Contact</a></li>
+                <li><button id="dark-mode-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="presentation">Projet de conception d'une plateforme de vote démocratique</h1>
+        <section >
+            <h2>VoxPopuli – Plateforme de vote démocratique</h2>
+            <p><strong>Équipe :</strong> 4 développeurs</p>
+            <p><strong>Durée :</strong> 3 semaines (méthodologie Agile)</p>
+            <p><strong>Description :</strong> Application web pour des votes démocratiques en ligne.</p>
+            <p><strong>Type de projet :</strong> Universitaire</p>
+            <p><strong>Contraintes :</strong> Temps, collaboration en équipe, respect des spécifications.</p>
+            <p><strong>Technologies utilisées :</strong> MVC, bases de données sécurisées, HTML, BULMA, PHP, gestion des sessions utilisateurs.</p>
+            <p><strong>Contribution personnelle :</strong></p>
+            <ul>
+                <li><a href="#connexion">Système d’authentification complet (inscription/connexion).</a></li>
+                <li><a href="#redirection">Redirections intelligentes pour améliorer l’expérience utilisateur.</a></li>
+                <li><a href="#notification">Notifications utilisateur et système de notification personnalisées.</a></li>
+                <li><a href="#securisation">Sécurité des données (chiffrement des mots de passe).</a></li>
+                <li><a href="#travailEquipe">Travail et gestion d'équipe.</a></li>
+            </ul>
+            <p><strong>Compétences développées :</strong></p>
+            <ul>
+                <li>Maîtrise du pattern MVC.</li>
+                <li>Bonnes pratiques de sécurité.</li>
+                <li>Optimisation des flux utilisateurs.</li>
+                <li>Communication non violente (CNV).</li>
+                <li>Transparence client.</li>
+                <li>Adaptabilité aux changements.</li>
+            </ul>
+            <p><strong>Bilan et perspectives :</strong></p>
+            <p>VoxPopuli a renforcé mon intérêt pour les projets à impact social et a confirmé l’importance de la confiance dans le développement logiciel.</p>
+        </section>
+        
+        <section id="connexion">
+            <h2>Trace du système de connexion : </h2>
+            <p>Un système d’authentification robuste n’est pas seulement une formalité technique : c’est le fondement de la crédibilité, de la sécurité et de l’équité d’une plateforme de vote en ligne.</p>
+            <p>C'est pourquoi, j'ai réalisé un système de connexion : </p>
+            <img src="/ressource/images/voxpopuli/video_connexion.gif" alt="video_connexion" class="zoomable-image">
+            <p>Dans cette vidéo, on peut voir plusieurs cas de figures : </p>
+            <ul>
+                <li>Le login n'existe pas.</li>
+                <li>L'utilisateur se trompe dans son mot de passe.</li>
+                <li>L'utilisateur essaie de réaliser <a href="https://fr.wikipedia.org/wiki/Injection_SQL" target="_blank">une injection SQL</a>.</li>
+            </ul>
+
+            <p>Voici le code qui permet de gérer la connexion de l'utilisateur : </p>
+            <img src="/ressource/images/voxpopuli/codeConnexionVoxPopuli.png" alt="trace_codeConnexion">
+            <p>Dans le code ci-dessus, j'ai réalisé de nombreuses vérifications.</p>
+            <p>
+                Via un système de pop-up qui s'affiche, j'ai pu rendre une bonne expérience utilisateurs et supprimer des vues inutiles.
+            </p>
+        </section>
+
+        <section>
+            <h2 id="redirection">Optimisation de l’Expérience Utilisateur (UX) : Gestion des Redirections Post-Connexion :</h2>
+            <p>Comment j’ai transformé une frustration en un parcours utilisateur fluide et intuitif.</p>
+            
+            <section>
+                <p>Le problème initial : une rupture dans le parcours utilisateur</p>
+                <h3>Scénario classique (et problématique) :</h3>
+                <ol>
+                    <li>Un utilisateur non connecté clique sur un bouton pour voter, consulter une proposition, ou accéder à une page réservée.</li>
+                    <li>Au lieu d’être guidé vers l’action souhaitée, il atterrit sur une page d’erreur générique (ex. : "Vous devez être connecté pour accéder à cette page").</li>
+                    <li>Conséquences :</li>
+                </ol>
+                <ul>
+                    <li>Frustration : L’utilisateur doit rechercher manuellement la page initiale après connexion.</li>
+                    <li>Abandon : Risque qu’il quitte le site, surtout sur mobile où la navigation est moins intuitive.</li>
+                    <li>Manque de professionnalisme : Une UX maladroite nuit à la crédibilité de la plateforme.</li>
+                </ul>
+                
+                <p>Ce problème est courant sur les sites avec des zones restreintes, mais il est critique pour un outil démocratique où chaque voix compte.</p>
+            </section>
+            <section>
+                    <h3>Première solution : Redirection vers la page de connexion</h3>
+                    <h4>Implémentation basique :</h4>
+                    <ul>
+                        <li>J'ai réalisé des vérifications systématique du statut de connexion avant toute action protégée.</li>
+                        <li>Si l'utilisateur n'est pas connecté, je le redirige vers le formulaire de connexion.</li>
+                    </ul>
+                    <h4>Limite majeure :</h4>
+                    <p>Après connexion, l’utilisateur est redirigé vers la page d’accueil (ou un tableau de bord par défaut), pas vers l’action initiale.</p>
+                    <p>Exemple : Il voulait voter pour la proposition #42 → après connexion, il doit re-trouver cette proposition.</p>
+            </section>
+
+            <section>
+                <h3>Solution améliorée : Stocker la "destination" dans l’URL</h3>
+                <h4>Principe :</h4>
+                <p>J'ai ajouter un paramètre <code>redirect</code> dans l’URL de la page de connexion, contenant l’URL de la page originale. Exemple : <code>/login?redirect=/propositions/42/vote</code></p>
+                <h4>Avantages :</h4>
+                <ul>
+                    <li>Après connexion, l’utilisateur est automatiquement redirigé vers <code>/propositions/42/vote</code>.</li>
+                    <li>Simple à implémenter (via les query strings).</li>
+                </ul>
+                <h4>Nouveau problème :</h4>
+                <p>Certaines actions nécessitent plus qu’une simple URL pour fonctionner. Exemples concrets dans VoxPopuli :</p>
+                <ul>
+                    <li>Voter pour une proposition : Il faut connaître l’ID de la proposition et le type de vote (pour/contre/abstention).</li>
+                    <li>Consulter un résultat : Il faut parfois des filtres (ex. : "résultats par circonscription").</li>
+                    <li>Modifier un profil : Certains champs pré-remplis dépendent du contexte.</li>
+                </ul>
+                <p>→ Une simple URL ne suffit pas pour restaurer l’état exact de la page.</p>
+            </section>
+
+            <section>
+                <h3>Solution finale : Un champ params dynamique dans l’URL</h3>
+                <h4>Comment ça marche :</h4>
+                <p>Détection de l’action initiale :</p>
+                <p>Quand un utilisateur non connecté tente d’accéder à une action protégée, le système :</p>
+                <ul>
+                    <li>Je capture le controleur et l'action suivante (ex. : <code>afterControleur=proposition&afterAction=voter</code>&<code>params=id=42</code>).</li>
+                    <li>Je stocke les données dans un champ <code>params</code>.</li>
+                </ul>
+            </section>
+
+            <p>Visuel du site :</p>
+            <img src="/ressource/images/voxpopuli/siteRedirectionLorsquePasConnecte.gif" alt="siteRedirectionLorsquePasConnecte" class="zoomable-image">
+
+            <p>Extrait de mon code de redirection : </p>
+            <img src="/ressource/images/voxpopuli/systemeRedirection.png" alt="systemeRedirection">
+        </section>
+
+        <section id="notification">
+            <h2>Système de Notifications : Pourquoi et comment il résout un problème clé dans VoxPopuli ?</h2>
+            <section>
+                <h3>Contexte : Un Besoin Client Incomplet</h3>
+                <h4>Demande initiale du client :</h4>
+                <p>Permettre à l’administrateur du site de valider les consultations (ex. : une proposition citoyenne).</p>
+                <h3>Problème identifié :</h3>
+                <p>Le client n’avait pas prévu de mécanisme pour avertir l’organisateur (créateur de la consultation) que sa demande avait été validée, rejetée, ou modifiée.</p>
+                <h3>Conséquence :</h3>
+                <p>L’organisateur devait vérifier manuellement le statut de sa consultation (perte de temps, risque d’oubli, frustration).</p>
+                <p>→ Un processus démocratique repose sur la transparence et la réactivité : sans notification, le système devenait opaque et peu efficace.</p>
+            </section>
+
+            <section>
+                <h3>Pourquoi un Système de Notifications Était Indispensable</h3>
+                <h4>Améliorer l’Expérience Utilisateur (UX) pour les Organisateurs</h4>
+                <h5>Sans notifications :</h5>
+                <p>L’organisateur doit rafraîchir constamment la page ou contacter l’administrateur pour savoir si sa consultation est validée.</p>
+                <p>Exemple : Un militant associatif qui lance une pétition ne sait pas si elle est en ligne → découragement.</p>
+                <h5>Avec notifications :</h5>
+                <p>Message clair et instantané : "Votre consultation 'Réforme des transports' a été validée par l’administrateur. Elle est maintenant visible par les votants."</p>
+                <p>Gain de temps : L’organisateur peut se concentrer sur la mobilisation plutôt que sur le suivi administratif.</p>
+                <h4>Renforcer la Transparence et la Confiance</h4>
+                <p>Dans un outil démocratique, chaque acteur doit savoir où en est son initiative.</p>
+                <p>Les notifications documentent les décisions (ex. : date de validation, nom de l’administrateur) → traçabilité en cas de litige.</p>
+                <p>Exemple : Si un organisateur conteste un rejet, les logs des notifications servent de preuve.</p>
+                <h4>Réduire la Charge de Travail de l’Administrateur</h4>
+                <p>Sans notifications :</p>
+                <p>L’administrateur reçoit des emails ou messages répétés du type "Ma consultation est-elle validée ?".</p>
+                <p>Avec notifications :</p>
+                <p>Automatisation : Le système informe l’organisateur → moins de sollicitations manuelles.</p>
+                <p>Bénéfice : L’administrateur peut se concentrer sur des tâches à plus forte valeur (ex. : modération, analyse des résultats).</p>
+                <h4>Éviter les Erreurs et les Oublis</h4>
+                <p>Scénario risque :</p>
+                <p>Une consultation est validée, mais l’organisateur ne le sait pas → pas de communication aux votants → faible participation.</p>
+                <p>Avec notifications :</p>
+                <p>L’organisateur est alerté en temps réel et peut lancer sa campagne de mobilisation.</p>
+            </section>
+            
+            <p>Voici le code du controleur de notification que j'ai réalisé :</p>
+            <img src="/ressource/images/voxpopuli/controleurNotification.png" alt="controleurNotification">
+            <p>C'est ce code qui va permettre de réaliser l'affichage de tous les notifications et de les supprimer.</p>
+            <img src="/ressource/images/voxpopuli/systemeNotificationSite.gif" alt="systemeNotificationSite" class="zoomable-image">
+            <p>Démonstration de la validation des consultations sur le site que j'ai réalisées :</p>
+            <img src="/ressource/images/voxpopuli/validerConsultation.png" alt="demonstrationValidationConsultation">
+        </section>
+
+        <section id="securisation">
+            <h2>Sécurité des données (chiffrement des mots de passe)</h2>
+            <p>Dans le développement de notre plateforme VoxPopuli, j'ai compris à quel point la sécurité des mots de passe est un enjeu critique pour toute application manipulant des données utilisateurs. Le chiffrement des mots de passe n'est pas une simple bonne pratique - c'est une obligation éthique et technique qui protège à la fois les utilisateurs et la réputation du service.</p>
+            <h3>Pourquoi chiffrer les mots de passe ?</h3>
+            <h4>Protéger les utilisateurs contre les fuites de données</h4>
+            <ul>
+                <li>Même avec les meilleures protections, aucune base de données n'est à l'abri d'une intrusion</li>
+                <li>Des entreprises comme LinkedIn, Yahoo ou Adobe ont subi des fuites massives de données</li>
+                <li>Sans chiffrement, les mots de passe seraient directement exploitables par des pirates</li>
+            </ul>
+            <h4>Respecter les obligations légales</h4>
+            <ul>
+                <li>Le RGPD en Europe impose des mesures de sécurité strictes pour les données personnelles</li>
+                <li>En cas de fuite de mots de passe non chiffrés, l'entreprise s'expose à des sanctions lourdes</li>
+                <li>C'est une question de conformité autant que de sécurité</li>
+            </ul>
+            <h4>Préserver la confiance des utilisateurs</h4>
+            <ul>
+                <li>Un utilisateur qui découvre que son mot de passe a été compromis perdra confiance dans le service</li>
+                <li>La réputation d'une plateforme se construit aussi sur sa capacité à protéger les données</li>
+                <li>Dans un contexte démocratique comme VoxPopuli, cette confiance est encore plus cruciale</li>
+            </ul>
+            <h3>Les bonnes pratiques de chiffrement</h3>
+            <p>Pour notre projet, nous avons mis en place un système robuste :</p>
+            <h4>Le hachage avec salage (salt)</h4>
+            <ul>
+                <li>Nous utilisons des algorithmes de hachage modernes comme bcrypt</li>
+                <li>Chaque mot de passe est associé à un "sel" (salt) unique</li>
+                <li>Même deux mots de passe identiques auront des hachages différents</li>
+            </ul>
+            <h4>Le poivre (pepper)</h4>
+            <ul>
+                <li>Une couche supplémentaire de sécurité avec une clé secrète globale</li>
+                <li>Protège contre les attaques par dictionnaire même si la base est compromise</li>
+            </ul>
+            <h4>Des algorithmes adaptés</h4>
+            <ul>
+                <li>Évitement des algorithmes rapides comme MD5 ou SHA-1</li>
+                <li>Utilisation de fonctions de hachage lentes et coûteuses en calcul</li>
+                <li>Paramétrage pour résister aux attaques par force brute</li>
+            </ul>
+            <h3>Les conséquences d'une mauvaise gestion</h3>
+            <p>Une base de données contenant des mots de passe en clair ou mal protégés expose à :</p>
+            <ul>
+                <li>Des attaques par réutilisation de mots de passe (credential stuffing)</li>
+                <li>Des vols d'identité si les utilisateurs réutilisent leurs mots de passe</li>
+                <li>Des responsabilités juridiques en cas de fuite de données</li>
+                <li>Une perte de crédibilité irréversible pour le service</li>
+            </ul>
+            <img src="/ressource/images/voxpopuli/codeChiffrementMotDePasse.png" alt="chiffrementMotDePasse">
+        </section>
+
+        <section id="travailEquipe">
+            <h2>Collaboration et gestion de projet : Leçons apprises</h2>
+            <p>Ce projet universitaire en équipe de 5 personnes, réalisé en seulement 3 semaines, a été une véritable école de la collaboration et de la gestion de projet. Travailler dans un cadre aussi contraint m'a appris des leçons précieuses sur l'importance de l'organisation collective et de la flexibilité individuelle.</p>
+            <p>La collaboration a été le fondement de notre réussite. Dès le début, nous avons établi une répartition claire des tâches en fonction des compétences et des affinités de chacun. Cette organisation initiale nous a permis d'éviter les chevauchements de travail et les oublis. Nous avons mis en place des points réguliers (tous les 2-3 jours) pour faire le point sur l'avancement, partager nos difficultés et ajuster notre stratégie si nécessaire. Ces réunions courtes mais efficaces nous ont permis de maintenir une communication fluide et de garder tout le monde aligné sur les objectifs. J'ai particulièrement apprécié cette dynamique où chacun pouvait exprimer ses idées et ses préoccupations, créant ainsi un environnement de travail collaboratif et bienveillant.</p>
+            <p>La gestion du temps a été notre plus grand défi. Avec seulement 3 semaines pour livrer un projet complet, chaque minute comptait. J'ai appris à prioriser les tâches en fonction de leur importance et de leur urgence. Nous avons utilisé une approche inspirée des méthodologies agiles, en découpant le projet en petites étapes réalisables. Cette méthode nous a permis de :</p>
+            <ul>
+                <li>Identifier les éléments critiques à réaliser en premier</li>
+                <li>Éviter la procrastination en fixant des échéances intermédiaires</li>
+                <li>Garder une vision claire de l'avancement global</li>
+                <li>Réajuster nos priorités en cours de route si nécessaire</li>
+            </ul>
+            <p>Enfin, ce projet m'a enseigné l'importance de l'adaptabilité. Malgré une planification minutieuse, nous avons dû faire face à des contraintes techniques imprévues et des retards dans certaines tâches. Plutôt que de nous décourager, nous avons appris à :</p>
+            <ul>
+                <li>Réévaluer nos objectifs en cours de route</li>
+                <li>Trouver des solutions créatives pour contourner les obstacles</li>
+                <li>Accepter les compromis quand nécessaire, sans sacrifier la qualité</li>
+                <li>Rester flexibles dans nos méthodes de travail</li>
+            </ul>
+            <p>Cette expérience intense m'a montré que le succès d'un projet ne dépend pas seulement des compétences techniques, mais aussi de la capacité à travailler ensemble efficacement, à gérer son temps intelligemment et à s'adapter aux imprévus. Ces compétences en gestion de projet et en travail d'équipe sont devenues pour moi aussi importantes que les compétences techniques purement informatiques, et je suis convaincu qu'elles me seront précieuses tout au long de ma carrière.</p>
+        </section>
+
+        <section>
+            <a href="https://voxpopuli.bastienluben.dev/web/controleurFrontal.php">Voir le site</a>
+        </section>
+
+        <a href="#presentation" id="top-page" class="fix-img">
+            <img src="/ressource/images/retourHaut.png" alt="top-pages">
+        </a>
+        <a href="/ressource/documents/CV-DUBOIS-CLEMENT.pdf" target="_blank" id="cv" class="fix-img">
+            <img src="/ressource/images/monCV.png" alt="cv">
+        </a>
+        <a href="https://www.linkedin.com/in/clementdubois1" target="_blank" id="linkedin" class="fix-img">
+            <img src="/ressource/images/linkedin-app-icon.svg" alt="linkedin">
+        </a>
+    </main>
+    <footer>
+        <p>&copy; 2025 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

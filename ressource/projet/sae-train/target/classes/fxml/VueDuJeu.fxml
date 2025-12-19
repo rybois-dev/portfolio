@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<?import fr.umontpellier.iut.trainsJavaFX.vues.VuePlateau?>
+<?import fr.umontpellier.iut.trainsJavaFX.vues.VueAutresJoueurs?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.umontpellier.iut.trainsJavaFX.vues.VueDuJeu">
+   <children>
+      <BorderPane prefHeight="400.0" prefWidth="600.0">
+         <left>
+            <SplitPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+               <items>
+                  <VBox prefHeight="200.0" prefWidth="100.0" />
+               </items>
+            </SplitPane>
+         </left>
+          <center>
+              <VuePlateau fx:id="plateau" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+          </center>
+         <top>
+            <VBox fx:id="VueAutresJoueurs" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </top>
+         <bottom>
+            <Pane fx:id="VueDuJoueur.java" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+         </bottom>
+      </BorderPane>
+      <TitledPane animated="false" layoutX="-252.0" layoutY="-55.0" text="untitled" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,62 @@
+#log-container::ng-deep {
+    div:first-child .tour {
+        margin-top: 0;
+    }
+    .tour {
+        text-align: center;
+        margin-top: 2rem;
+        &::before {
+            content: "-- ";
+        }
+
+        &::after {
+            content: " --";
+        }
+    }
+
+    .joueur {
+        border-radius: 1000px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        // box-shadow: 0 1px 3px 0 rgb(0 0 0), 0 1px 2px -1px rgb(0 0 0);
+        &.rouge {
+            background-color: rgb(254 202 202);
+        }
+
+        &.bleu {
+            background-color: rgb(191 219 254);
+        }
+
+        &.jaune {
+            background-color: rgb(254 240 138);
+        }
+        &.vert {
+            background-color: rgb(187 247 208);
+        }
+    }
+
+    .carte {
+        border-radius: 2px;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        // box-shadow: 0 1px 3px 0 rgb(0 0 0), 0 1px 2px -1px rgb(0 0 0);
+        &.action {
+            background-color: rgb(254 202 202);
+        }
+        &.train {
+            background-color: rgb(191 219 254);
+        }
+        &.victoire {
+            background-color: rgb(254 240 138);
+        }
+        &.ferraille {
+            background-color: rgb(209 213 219);
+        }
+        &.gare {
+            background-color: rgb(233 213 255);
+        }
+        &.rail {
+            background-color: rgb(187 247 208);
+        }
+    }
+}

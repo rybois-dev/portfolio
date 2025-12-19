@@ -1,9 +1,0 @@
-<app-zoomable [carte]="carte">
-    <div class="relative inline-block" (click)="onClick()">
-        <div *ngIf="nombre <= 0" class="absolute inset-0 bg-black opacity-50"></div>
-        <img class="w-24 border shadow rounded inline-block" [src]="getImageUrl()" alt="{{ carte }}" />
-        <span
-            class="w-6 h-6 m-r-2 m-b-2 border border-black rounded-full flex items-center justify-center absolute bottom-1 right-1 bg-white">{{
-            nombre }}</span>
-    </div>
-</app-zoomable>
