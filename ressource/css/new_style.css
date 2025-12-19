@@ -173,6 +173,13 @@ section img {
     z-index: 1000;
 }
 
+#github {
+    position: fixed;
+    bottom: 20px;
+    right: 140px;
+    z-index: 1000;
+}
+
 #top-page {
     position: fixed;
     bottom: 20px;
