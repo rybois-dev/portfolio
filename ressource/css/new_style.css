@@ -289,6 +289,26 @@ footer {
     background-color: #e0e0e0;
 }
 
+/* caroussel linkedin*/
+.cache {
+    display: none;
+}
+
+.visible {
+    display: inline-block;
+}
+
+#actualite > div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.arrow {
+    width: 10%;
+    height: 10%;
+}
+
 @media (max-width: 768px) {
     section {
         margin: 20px;
@@ -331,3 +351,8 @@ footer {
     }
 }
 
+@media (max-width: 648px) {
+    #actualite {
+        display: none;
+    }
+}
