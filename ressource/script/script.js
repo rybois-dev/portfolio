@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Contact form animation
-    const contactForm = document.querySelector('#contact form');
+    const contactForm = document.querySelector('#contact');
     contactForm.style.opacity = '0';
     contactForm.style.transform = 'translateY(20px)';
     contactForm.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.5s ease';
@@ -101,3 +101,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     footerObserver.observe(footer);
 });
+
+function nextPublication() {
+    const frames = document.querySelectorAll('iframe');
+    const visibleFrames = document.querySelectorAll('iframe.visible');
+
+    // Masquer les frames visibles actuelles
+    visibleFrames.forEach(frame => {
+        frame.classList.remove('visible');
+        frame.classList.add('cache');
+    });
+
+    // Trouver la prochaine frame à afficher
+    let nextIndex = 0;
+    if (visibleFrames.length > 0) {
+        const currentIndex = Array.from(frames).indexOf(visibleFrames[0]);
+        nextIndex = (currentIndex + 1) % frames.length;
+    }
+
+    // Afficher la prochaine frame
+    frames[nextIndex].classList.remove('cache');
+    frames[nextIndex].classList.add('visible');
+}
+
+//let changemenActu = setInterval(nextPublication, 6000);
+
