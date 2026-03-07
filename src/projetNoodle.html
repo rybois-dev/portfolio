@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../ressource/css/new_style.css">
+    <script src="../ressource/script/zoom.js"></script>
+    <script src="../ressource/script/script.js"></script>
+    <title>Noodle</title>
+</head>
+
+<body>
+    <header>
+        <div class="burger">
+            <img src="../ressource/images/menu2.png" alt="menuFerme" id="ferme">
+            <img src="../ressource/images/menu_ouvert.png" alt="menuOuvert" id="ouvert">
+            <div id="menu2">
+                <div>
+                    <a href="../src/index.html">Accueil</a>
+                </div>
+                <div>
+                    <a href="../src/index.html#projets">Projets</a>
+                </div>
+                <div>
+                    <a href="../src/bilanApprentissagesBut2.html">Bilan d'apprentissages</a>
+                </div>
+                <div>
+                    <a href="../src/index.html#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../src/index.html">Accueil</a></li>
+                <li><a href="../src/index.html#projets">Projets</a></li>
+                <li><a href="../src/bilanApprentissagesBut2.html">Bilan d'apprentissages</a></li>
+                <li><a href="../src/index.html#contact">Contact</a></li>
+                <li><button id="dark-mode-toggle">🌙</button></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1 id="presentation">Projet de correction d'une application web de sondage : </h1>
+        <section>
+            <h2>Noodle - Plateforme de sondage</h2>
+            <p><strong>Équipe :</strong> 4 développeurs</p>
+            <p><strong>Durée :</strong> 6 semaines (méthodologie Agile) - En cours</p>
+            <p><strong>Description :</strong> Application web pour des votes démocratiques en ligne.</p>
+            <p><strong>Type de projet :</strong> Universitaire</p>
+            <p><strong>Contraintes :</strong> Temps, collaboration en équipe, respect des spécifications, qualité de
+                développement, maintenabilité du code, teste des solutions.</p>
+            <p><strong>Technologies utilisées :</strong> MVC, bases de données sécurisées, HTML, BULMA, PHP, gestion des
+                sessions utilisateurs, JS, JSON.</p>
+            <p><strong>Contribution personnelle :</strong></p>
+            <ul>
+                <li><a href="#diagnostique">Diagnostiquer la solution web présentée.</a></li>
+                <li><a href="#refonteBD">Refonte de la base de données.</a></li>
+                <li><a href="#travailEquipe">Travail et gestion d'équipe.</a></li>
+            </ul>
+            <p><strong>Compétences développées :</strong></p>
+            <ul>
+                <li>Maîtrise du pattern MVC.</li>
+                <li>Bonnes pratiques de sécurité.</li>
+                <li>Débusquer les problèmes de sécurités.</li>
+                <li>Comprendre et analyser les défaut logiciel.</li>
+                <li>Communication non violente (CNV).</li>
+                <li>lisibilité du code.</li>
+                <li>Déterminer une spécification du code.</li>
+                <li>Utilisation de Casey Delobel pour la préservation des données.</li>
+            </ul>
+
+        </section>
+            <section id="diagnostique">
+                <h2>Analyse critique de la solution existante</h2>
+                <p>Dans le cadre de mon analyse, j’ai réalisé un rapport détaillé sur l’état actuel du code de la
+                    solution, mettant en lumière plusieurs problèmes critiques. Parmi ceux-ci figurent des failles de
+                    sécurité majeures : certaines actions à haut niveau de privilège ne vérifient pas systématiquement
+                    les droits d’administrateur, exposant le système à des abus. De plus, l’absence d’échappement du
+                    HTML ouvre la porte à des injections SQL, à des modifications non autorisées des pages, voire à des
+                    comportements indésirables, compromettant ainsi l’intégrité et la fiabilité de l’application.</p>
+                <p>Sur le plan de la maintenabilité, le code souffre d’une dépendance excessive entre ses composants :
+                    chaque élément du site repose sur un autre de manière rigide, rendant toute évolution ou correction
+                    complexe sans remanier des parties existantes. Cette architecture viole le principe ouvert/fermé,
+                    limitant la capacité à étendre les fonctionnalités sans risquer de régressions ou de cascades de
+                    modifications.</p>
+                <p>Enfin, l’homogénéité des données est mise à mal par une redondance importante dans la base de
+                    données, source potentielle d’incohérences et de difficultés de synchronisation. Ces anomalies
+                    compliquent la gestion des informations et augmentent les risques d’erreurs lors des mises à jour.
+                </p>
+                <p>J’ai activement contribué à la rédaction du rapport d’analyse de ces problèmes, en proposant une
+                    évaluation claire des risques et des pistes d’amélioration pour chaque point soulevé. L’objectif est
+                    de fournir une base solide pour des corrections ciblées, afin de renforcer la sécurité, la
+                    maintenabilité et la cohérence du système sur le long terme.</p>
+
+                <p>
+                    Voir le <a href="../ressource/documents/Rapport_d’Audit_Technique_Dellaroli_Dubois_Lopez_Luben.pdf">rapport réalisé.</a>
+                </p>
+            </section>
+
+            <section id="refonteBD">
+                <h2>Refonte de la base de données</h2>
+                <p>La base de données initiale se limitait à une unique table, centralisant à la fois les informations des utilisateurs, leurs disponibilités et les sondages. Cette conception monolithique posait précisément les problèmes que nous avions identifiés dans le compte rendu précédent : redondance des données, manque de maintenabilité et risques accrus d’incohérences.</p>
+                <img src="../ressource/images/noodle/bdOriginale.png" alt="baseDeDonneesOriginale">
+                <p>Pour y remédier, j’ai utilisé Casey Delobel, un outil dédié à la modélisation de bases de données, afin de restructurer le schéma. L’objectif était double : définir des clés pertinentes pour garantir l’intégrité des données, et séparer les entités logiquement distinctes (utilisateurs, disponibilités, sondages) en tables dédiées. Cette refonte préserve l’accessibilité des données tout en éliminant les dépendances problématiques et en améliorant la clarté et l’évolutivité du système.</p>
+            </section>
+
+
+            <section id="travailEquipe">
+                <h2>Collaboration et gestion de projet : Leçons apprises</h2>
+                <p>Ce projet universitaire en équipe de 4 personnes, réalisé en seulement 6 semaines, est une véritable
+                    école de la collaboration et de la gestion de projet. Travailler dans un cadre aussi contraint m'a
+                    appris des leçons précieuses sur l'importance de l'organisation collective et de la flexibilité
+                    individuelle.</p>
+                <p>Dès le début, nous avons établi une répartition claire des tâches en fonction des compétences et des
+                    affinités de chacun. Cette organisation initiale nous permet d'éviter les chevauchements de travail
+                    et les oublis. Nous mettons en place des points réguliers (tous les 2-3 jours) pour faire le point
+                    sur l'avancement, partager nos difficultés et ajuster notre stratégie si nécessaire. Ces réunions
+                    courtes mais efficaces nous permettent de maintenir une communication fluide et de garder tout le
+                    monde aligné sur les objectifs. J'ai particulièrement apprécié cette dynamique où chacun pouvait
+                    exprimer ses idées et ses préoccupations, créant ainsi un environnement de travail collaboratif et
+                    bienveillant.</p>
+                <p>La gestion du temps est notre plus grand défi. Avec seulement 6 semaines pour livrer un projet
+                    amélioré complet, chaque minute comptait. J' apprends à prioriser les tâches en fonction de leur
+                    importance et de leur urgence. Nous utilisons une approche inspirée des méthodologies agiles, en
+                    découpant le projet en petites étapes réalisables. Cette méthode nous permet de :</p>
+                <ul>
+                    <li>Identifier les éléments critiques à réaliser en premier</li>
+                    <li>Éviter la procrastination en fixant des échéances intermédiaires</li>
+                    <li>Garder une vision claire de l'avancement global</li>
+                    <li>Réajuster nos priorités en cours de route si nécessaire</li>
+                </ul>
+                <p>Enfin, ce projet m'enseigne l'importance de l'adaptabilité. Malgré une planification minutieuse, nous
+                    devons faire face à des contraintes techniques imprévues et des retards dans certaines tâches.
+                    Plutôt que de nous décourager, nous avons appris à :</p>
+                <ul>
+                    <li>Réévaluer nos objectifs en cours de route</li>
+                    <li>Trouver des solutions créatives pour contourner les obstacles</li>
+                    <li>Accepter les compromis quand nécessaire, sans sacrifier la qualité</li>
+                    <li>Rester flexibles dans nos méthodes de travail</li>
+                </ul>
+                <p>Cette expérience intense me montré que le succès d'un projet ne dépend pas seulement des compétences
+                    techniques, mais aussi de la capacité à travailler ensemble efficacement, à gérer son temps
+                    intelligemment et à s'adapter aux imprévus. Ces compétences en gestion de projet et en travail
+                    d'équipe sont devenues pour moi aussi importantes que les compétences techniques purement
+                    informatiques, et je suis convaincu qu'elles me seront précieuses tout au long de ma carrière.</p>
+            </section>
+
+
+
+            <a href="#presentation" id="top-page" class="fix-img">
+                <img src="../ressource/images/retourHaut.png" alt="top-pages">
+            </a>
+            <a href="../ressource/documents/CV-DUBOIS-CLEMENT.pdf" target="_blank" id="cv" class="fix-img">
+                <img src="../ressource/images/monCV.png" alt="cv">
+            </a>
+            <a href="https://www.linkedin.com/in/clementdubois1" target="_blank" id="linkedin" class="fix-img">
+                <img src="../ressource/images/linkedin-app-icon.svg" alt="linkedin">
+            </a>
+    </main>
+    <footer>
+        <p>&copy; 2026 Mon Portfolio. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>
