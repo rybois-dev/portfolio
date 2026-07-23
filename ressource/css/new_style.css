@@ -102,6 +102,32 @@ main {
     padding-top: 80px;
 }
 
+.alignementVertical {
+    display: flex;
+    flex-direction:row;
+}
+
+.alignementHorizontal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.information-experience h3 {
+    margin-top: inherit !important;
+}
+
+.information-experience * {
+    line-height: 1.1;
+}
+
+.logoEntreprise {
+    height: 5%;
+    width: 10%;
+    margin-left: 0 !important;
+    margin-right: 1% !important;
+}
+
 .moi {
     text-align: center;
 }
@@ -322,8 +348,12 @@ footer {
 
 @media (max-width: 768px) {
     section {
-        margin: 20px;
-        padding: 20px;
+        margin: 5px;
+        padding: 5px;
+    }
+
+    main {
+        max-width: 95%;
     }
 
     header h1 {
@@ -353,6 +383,10 @@ footer {
         padding: 20px 0;
     }
 
+    p,h2,h3 {
+        font-size: smaller;
+    }
+
     nav ul.active {
         display: flex;
     }
@@ -366,4 +400,15 @@ footer {
     #actualite {
         display: none;
     }
+}
+
+.background-iframe {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
 }
